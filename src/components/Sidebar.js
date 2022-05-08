@@ -1,80 +1,61 @@
 export default function Sidebar() {
-    return (
-        <div class="sidebar">
-            <div class="usuario">
-                <img src="assets/img/catanacomics.svg" />
-                <div class="texto">
-                    <strong>catanacomics</strong>
-                    Catana
-                </div>
-            </div>
 
+    const sugestoes = [
+        { usuario: 'bad.vibes.memes' },
+        { usuario: 'chibirdart' },
+        { usuario: 'razoesparaacreditar', ehNovo: true },
+        { usuario: 'adorable_animals' },
+        { usuario: 'smallcutecats' }
+    ];
+
+    function Sugestoes({ usuarios }) {
+        return (
             <div class="sugestoes">
                 <div class="titulo">
                     Sugestões para você
                     <div>Ver tudo</div>
                 </div>
 
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/bad.vibes.memes.svg" />
-                        <div class="texto">
-                            <div class="nome">bad.vibes.memes</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
+                {usuarios.map(s => <Sugestao usuario={s.usuario} ehNovo={s.ehNovo} />)}
 
-                    <div class="seguir">Seguir</div>
+            </div>
+        );
+    }
+
+    function Sugestao({ usuario, ehNovo }) {
+        return (
+            <div class="sugestao">
+                <div class="usuario">
+                    <img src={`assets/img/${usuario}.svg`} />
+                    <div class="texto">
+                        <div class="nome">{usuario}</div>
+                        {(ehNovo) ? <div class="razao">Novo no Instagram</div> : <div class="razao">Segue você</div>}
+                    </div>
                 </div>
 
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/chibirdart.svg" />
-                        <div class="texto">
-                            <div class="nome">chibirdart</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
+                <div class="seguir">Seguir</div>
+            </div>
+        );
+    }
 
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/razoesparaacreditar.svg" />
-                        <div class="texto">
-                            <div class="nome">razoesparaacreditar</div>
-                            <div class="razao">Novo no Instagram</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/adorable_animals.svg" />
-                        <div class="texto">
-                            <div class="nome">adorable_animals</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/smallcutecats.svg" />
-                        <div class="texto">
-                            <div class="nome">smallcutecats</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-
-                    <div class="seguir">Seguir</div>
+    function Usuario({ usuario, nomeUsuario }) {
+        return (
+            <div class="usuario">
+                <img src={`assets/img/${usuario}.svg`} />
+                <div class="texto">
+                    <strong>{usuario}</strong>
+                    {nomeUsuario}
                 </div>
             </div>
+        );
+    }
+
+    return (
+        <div class="sidebar">
+
+            <Usuario usuario='catanacomics' nomeUsuario='Catana' />
+
+            <Sugestoes usuarios={sugestoes} />
 
             <div class="links">
                 Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma
