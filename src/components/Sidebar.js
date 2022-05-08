@@ -16,7 +16,7 @@ export default function Sidebar() {
                     <div>Ver tudo</div>
                 </div>
 
-                {usuarios.map(s => <Sugestao usuario={s.usuario} ehNovo={s.ehNovo} />)}
+                {usuarios.map(itens => <Sugestao usuario={itens.usuario} ehNovo={itens.ehNovo} />)}
 
             </div>
         );

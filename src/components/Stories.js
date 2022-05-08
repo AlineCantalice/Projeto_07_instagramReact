@@ -18,7 +18,7 @@ export default function Stories({ srcs }) {
     return (
         <div class="stories">
 
-            {srcs.map(s => <Story src={s} />)}
+            {srcs.map(itens => <Story src={itens} />)}
 
             <Icons style="setinha" icons={["chevron-forward-circle"]} />
 

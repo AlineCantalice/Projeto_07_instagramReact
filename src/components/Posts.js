@@ -1,8 +1,8 @@
 import Post from "./Post";
 
-export default function Posts({ posts }) {
+export default function Posts() {
 
-    posts = [
+    const posts = [
         {
             usuario: 'meowed',
             conteudo: 'gato-telefone',
