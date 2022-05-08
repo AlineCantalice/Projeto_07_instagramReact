@@ -1,15 +1,15 @@
 import Icons from "./Icons";
 
-export default function Stories({ srcs }) {
+export default function Stories(props) {
 
-    function Story({ src }) {
+    function Story(props) {
         return (
             <div class="story">
                 <div class="imagem">
-                    <img src={`assets/img/${src}.svg`} />
+                    <img src={`assets/img/${props.src}.svg`} />
                 </div>
                 <div class="usuario">
-                    {src}
+                    {props.src}
                 </div>
             </div>
         );
@@ -18,7 +18,7 @@ export default function Stories({ srcs }) {
     return (
         <div class="stories">
 
-            {srcs.map(itens => <Story src={itens} />)}
+            {props.srcs.map(itens => <Story src={itens} />)}
 
             <Icons style="setinha" icons={["chevron-forward-circle"]} />
 

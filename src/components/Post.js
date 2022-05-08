@@ -1,15 +1,15 @@
 import Icons from "./Icons";
 
-export default function Post({ post: { usuario, conteudo, fundo } }) {
+export default function Post(props) {
 
     const icons = ["heart-outline", "chatbubble-outline", "paper-plane-outline"];
 
-    function Topo({ usuario }) {
+    function Topo(props) {
         return (
             <div class="topo">
                 <div class="usuario">
-                    <img src={`assets/img/${usuario}.svg`} />
-                    {usuario}
+                    <img src={`assets/img/${props.usuario}.svg`} />
+                    {props.usuario}
                 </div>
 
                 <Icons style="acoes" icons={["ellipsis-horizontal"]} />
@@ -18,7 +18,7 @@ export default function Post({ post: { usuario, conteudo, fundo } }) {
         );
     }
 
-    function Fundo({ usuarioCurtiu, outrosCurtiu }) {
+    function Fundo(props) {
         return (
             <div class="fundo">
                 <div class="acoes">
@@ -27,9 +27,9 @@ export default function Post({ post: { usuario, conteudo, fundo } }) {
                 </div>
 
                 <div class="curtidas">
-                    <img src={`assets/img/${usuarioCurtiu}.svg`} />
+                    <img src={`assets/img/${props.usuarioCurtiu}.svg`} />
                     <div class="texto">
-                        Curtido por <strong>{usuarioCurtiu}</strong> e <strong>outras {outrosCurtiu} pessoas</strong>
+                        Curtido por <strong>{props.usuarioCurtiu}</strong> e <strong>outras {props.outrosCurtiu} pessoas</strong>
                     </div>
                 </div>
             </div>
@@ -39,13 +39,13 @@ export default function Post({ post: { usuario, conteudo, fundo } }) {
     return (
         <div class="post">
 
-            <Topo usuario={usuario} />
+            <Topo usuario={props.post.usuario} />
 
             <div class="conteudo">
-                <img src={`assets/img/${conteudo}.svg`} />
+                <img src={`assets/img/${props.post.conteudo}.svg`} />
             </div>
 
-            <Fundo usuarioCurtiu={fundo.usuarioCurtiu} outrosCurtiu={fundo.outrosCurtiu} />
+            <Fundo usuarioCurtiu={props.post.fundo.usuarioCurtiu} outrosCurtiu={props.post.fundo.outrosCurtiu} />
 
         </div>
     );

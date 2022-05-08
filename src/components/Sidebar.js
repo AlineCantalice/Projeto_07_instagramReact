@@ -8,28 +8,14 @@ export default function Sidebar() {
         { usuario: 'smallcutecats' }
     ];
 
-    function Sugestoes({ usuarios }) {
-        return (
-            <div class="sugestoes">
-                <div class="titulo">
-                    Sugestões para você
-                    <div>Ver tudo</div>
-                </div>
-
-                {usuarios.map(itens => <Sugestao usuario={itens.usuario} ehNovo={itens.ehNovo} />)}
-
-            </div>
-        );
-    }
-
-    function Sugestao({ usuario, ehNovo }) {
+    function Sugestao(props) {
         return (
             <div class="sugestao">
                 <div class="usuario">
-                    <img src={`assets/img/${usuario}.svg`} />
+                    <img src={`assets/img/${props.usuario}.svg`} />
                     <div class="texto">
-                        <div class="nome">{usuario}</div>
-                        {(ehNovo) ? <div class="razao">Novo no Instagram</div> : <div class="razao">Segue você</div>}
+                        <div class="nome">{props.usuario}</div>
+                        {(props.ehNovo) ? <div class="razao">Novo no Instagram</div> : <div class="razao">Segue você</div>}
                     </div>
                 </div>
 
@@ -38,13 +24,27 @@ export default function Sidebar() {
         );
     }
 
-    function Usuario({ usuario, nomeUsuario }) {
+    function Sugestoes(props) {
+        return (
+            <div class="sugestoes">
+                <div class="titulo">
+                    Sugestões para você
+                    <div>Ver tudo</div>
+                </div>
+
+                {props.usuarios.map(itens => <Sugestao usuario={itens.usuario} ehNovo={itens.ehNovo} />)}
+
+            </div>
+        );
+    }
+
+    function Usuario(props) {
         return (
             <div class="usuario">
-                <img src={`assets/img/${usuario}.svg`} />
+                <img src={`assets/img/${props.usuario}.svg`} />
                 <div class="texto">
-                    <strong>{usuario}</strong>
-                    {nomeUsuario}
+                    <strong>{props.usuario}</strong>
+                    {props.nomeUsuario}
                 </div>
             </div>
         );
