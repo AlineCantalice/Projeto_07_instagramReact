@@ -1,6 +1,10 @@
 import Icons from "./Icons";
+import React from "react"
 
 export default function Post(props) {
+
+    const [name, setName] = React.useState("heart-outline");
+    const [classHeart, setClassHeart] = React.useState("");
 
     const icons = ["heart-outline", "chatbubble-outline", "paper-plane-outline"];
 
@@ -22,7 +26,11 @@ export default function Post(props) {
         return (
             <div class="fundo">
                 <div class="acoes">
-                    <Icons style="" icons={icons} />
+                    <div>
+                        <ion-icon class={classHeart} onClick={curtir} name={name}></ion-icon>
+                        <ion-icon name="chatbubble-outline"></ion-icon>
+                        <ion-icon name="paper-plane-outline"></ion-icon>
+                    </div>
                     <Icons style="" icons={["bookmark-outline"]} />
                 </div>
 
@@ -36,12 +44,22 @@ export default function Post(props) {
         );
     }
 
+    function curtir(){
+        (name === "heart-outline") ? setName("heart") : setName("heart-outline");
+        (classHeart === "") ? setClassHeart("coracao-preenchido") : setClassHeart("");
+    }
+
+    function curtirImagem(){
+        setName("heart");
+        setClassHeart("coracao-preenchido");
+    }
+
     return (
         <div class="post">
 
             <Topo usuario={props.post.usuario} />
 
-            <div class="conteudo">
+            <div onClick={curtirImagem} class="conteudo">
                 <img src={`assets/img/${props.post.conteudo}.svg`} />
             </div>
 
