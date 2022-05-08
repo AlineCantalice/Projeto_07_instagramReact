@@ -1,11 +1,11 @@
 export default function Sidebar() {
 
     const sugestoes = [
-        { usuario: 'bad.vibes.memes' },
-        { usuario: 'chibirdart' },
-        { usuario: 'razoesparaacreditar', ehNovo: true },
-        { usuario: 'adorable_animals' },
-        { usuario: 'smallcutecats' }
+        { usuario: "bad.vibes.memes" },
+        { usuario: "chibirdart" },
+        { usuario: "razoesparaacreditar", ehNovo: true },
+        { usuario: "adorable_animals" },
+        { usuario: "smallcutecats" }
     ];
 
     function Sugestao(props) {

@@ -2,18 +2,23 @@ import Icons from './Icons';
 
 export default function Navbar() {
 
-    const icons = ['paper-plane-outline', 'compass-outline', 'heart-outline', 'person-outline'];
+    const icons = [
+        { nome: "paper-plane-outline" },
+        { nome: "compass-outline" },
+        { nome: "heart-outline" },
+        { nome: "person-outline" }
+    ];
 
     return (
         <div class="navbar">
             <div class="container">
                 <div class="logo">
-                    <Icons style="" icons={["logo-instagram"]} />
+                    <Icons style="" icons={[{ nome: "logo-instagram" }]} />
                     <div class="separador"></div>
                     <img src="assets/img/logo.png" />
                 </div>
 
-                <Icons style="logo-mobile" icons={['logo-instagram']} />
+                <Icons style="logo-mobile" icons={[{ nome: 'logo-instagram' }]} />
 
                 <div class="instagram-mobile">
                     <img src="assets/img/logo.png" />
@@ -25,7 +30,7 @@ export default function Navbar() {
 
                 <Icons style="icones" icons={icons} />
 
-                <Icons style="icones-mobile" icons={['paper-plane-outline']} />
+                <Icons style="icones-mobile" icons={[{ nome: 'paper-plane-outline' }]} />
 
             </div>
         </div>

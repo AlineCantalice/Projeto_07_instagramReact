@@ -20,7 +20,7 @@ export default function Stories(props) {
 
             {props.srcs.map(itens => <Story src={itens} />)}
 
-            <Icons style="setinha" icons={["chevron-forward-circle"]} />
+            <Icons style="setinha" icons={[{ nome: "chevron-forward-circle" }]} />
 
         </div>
     );

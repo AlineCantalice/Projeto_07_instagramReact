@@ -5,8 +5,17 @@ export default function Post(props) {
 
     const [name, setName] = React.useState("heart-outline");
     const [classHeart, setClassHeart] = React.useState("");
+    const [nomeFuncao, setNomeFuncao] = React.useState("");
 
-    const icons = ["heart-outline", "chatbubble-outline", "paper-plane-outline"];
+    const icons = [
+        {
+            nome: name,
+            classe: classHeart,
+            funcao: nomeFuncao,
+        },
+        { nome: "chatbubble-outline" },
+        { nome: "paper-plane-outline" }
+    ];
 
     function Topo(props) {
         return (
@@ -27,11 +36,9 @@ export default function Post(props) {
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon class={classHeart} onClick={curtir} name={name}></ion-icon>
-                        <ion-icon name="chatbubble-outline"></ion-icon>
-                        <ion-icon name="paper-plane-outline"></ion-icon>
+                        <Icons style="" icons={icons} />
                     </div>
-                    <Icons style="" icons={["bookmark-outline"]} />
+                    <Icons style="" icons={[{ nome: "bookmark-outline" }]} />
                 </div>
 
                 <div class="curtidas">
@@ -44,12 +51,20 @@ export default function Post(props) {
         );
     }
 
-    function curtir(){
+    function nomeFuncaoCurtir(nome){
+        if(nome === "curtir"){
+            setNomeFuncao(curtir);
+        } else if(nome === "curtirImagem"){
+            setNomeFuncao(curtirImagem);
+        }
+    }
+
+    function curtir() {
         (name === "heart-outline") ? setName("heart") : setName("heart-outline");
         (classHeart === "") ? setClassHeart("coracao-preenchido") : setClassHeart("");
     }
 
-    function curtirImagem(){
+    function curtirImagem() {
         setName("heart");
         setClassHeart("coracao-preenchido");
     }
@@ -59,7 +74,7 @@ export default function Post(props) {
 
             <Topo usuario={props.post.usuario} />
 
-            <div onClick={curtirImagem} class="conteudo">
+            <div class="conteudo">
                 <img src={`assets/img/${props.post.conteudo}.svg`} />
             </div>
 
