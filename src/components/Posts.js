@@ -1,11 +1,20 @@
 export default function Posts() {
 
+    const srcImagemUsuario = ["assets/img/meowed.svg", "assets/img/barked.svg"];
+    const nomeUsuario = ["meowed", "barked"];
+    const srcImagemConteudo = ["assets/img/gato-telefone.svg", "assets/img/gato-telefone.svg"];
+    const usuarioCurtiu = ["respondeai", "adorable_animals"];
+    const outrosCurtiu = ["101.523", "99.159"];
+
+    const componentSrcImagemUsuario = srcImagemUsuario.map(items => <img src={items} />);
+    const componentNomeUsuario = nomeUsuario.map(items => <p>{items}</p>);
+
     function Post(props) {
         return (
             <div class="post">
                 <div class="topo">
                     <div class="usuario">
-                        <img src={props.srcImagemUsuario} />
+                        <img src={props.srcImgUsuario} />
                         {props.nomeUsuario}
                     </div>
                     <div class="acoes">
@@ -14,7 +23,7 @@ export default function Posts() {
                 </div>
 
                 <div class="conteudo">
-                    <img src={props.srcImagemConteudo} />
+                    <img src={props.srcImgConteudo} />
                 </div>
 
                 <div class="fundo">
@@ -30,7 +39,7 @@ export default function Posts() {
                     </div>
 
                     <div class="curtidas">
-                        <img src={props.srcImagemCurtidas} />
+                        <img src={props.srcImgCurtidas} />
                         <div class="texto">
                             Curtido por <strong>{props.usuarioCurtiu}</strong> e <strong>outras {props.outrosCurtiu} pessoas</strong>
                         </div>
@@ -42,8 +51,13 @@ export default function Posts() {
 
     return (
         <div class="posts">
-            <Post srcImagemUsuario="assets/img/meowed.svg" nomeUsuario="meowed" srcImagemConteudo="assets/img/gato-telefone.svg" srcImagemCurtidas="assets/img/respondeai.svg" usuarioCurtiu="respondeai" outrosCurtiu="101.523" />
-            <Post srcImagemUsuario="assets/img/barked.svg" nomeUsuario="barked" srcImagemConteudo="assets/img/dog.svg" srcImagemCurtidas="assets/img/adorable_animals.svg" usuarioCurtiu="adorable_animals" outrosCurtiu="99.159" />         
+            <Post srcImgUsuario="assets/img/meowed.svg" nomeUsuario="meowed"
+            srcImgConteudo="assets/img/gato-telefone.svg" srcImgCurtidas="assets/img/respondeai.svg"
+            usuarioCurtiu="respondeai" outrosCurtiu="101.523" />
+
+            <Post srcImgUsuario="assets/img/barked.svg" nomeUsuario="barked"
+            srcImgConteudo="assets/img/dog.svg" srcImgCurtidas="assets/img/adorable_animals.svg"
+            usuarioCurtiu="adorable_animals" outrosCurtiu="99.159" />         
         </div>
     );
 }

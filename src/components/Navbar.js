@@ -1,4 +1,9 @@
+import Icons from './Icons';
+
 export default function Navbar() {
+
+    const iconsIcones = ['paper-plane-outline', 'compass-outline', 'heart-outline', 'person-outline'];
+
     return (
         <div class="navbar">
             <div class="container">
@@ -8,9 +13,7 @@ export default function Navbar() {
                     <img src="assets/img/logo.png" />
                 </div>
 
-                <div class="logo-mobile">
-                    <ion-icon name="logo-instagram"></ion-icon>
-                </div>
+                <Icons style ="logo-mobile" icons ={['logo-instagram']} />
 
                 <div class="instagram-mobile">
                     <img src="assets/img/logo.png" />
@@ -20,16 +23,10 @@ export default function Navbar() {
                     <input type="text" placeholder="Pesquisar" />
                 </div>
 
-                <div class="icones">
-                    <ion-icon name="paper-plane-outline"></ion-icon>
-                    <ion-icon name="compass-outline"></ion-icon>
-                    <ion-icon name="heart-outline"></ion-icon>
-                    <ion-icon name="person-outline"></ion-icon>
-                </div>
+                <Icons style="icones" icons={iconsIcones} />
 
-                <div class="icones-mobile">
-                    <ion-icon name="paper-plane-outline"></ion-icon>
-                </div>
+                <Icons style ="icones-mobile" icons ={['paper-plane-outline']} />
+
             </div>
         </div>
     );
