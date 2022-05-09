@@ -4,18 +4,7 @@ import React from "react"
 export default function Post(props) {
 
     const [name, setName] = React.useState("heart-outline");
-    const [classHeart, setClassHeart] = React.useState("");
-    const [nomeFuncao, setNomeFuncao] = React.useState("");
-
-    const icons = [
-        {
-            nome: name,
-            classe: classHeart,
-            funcao: nomeFuncao,
-        },
-        { nome: "chatbubble-outline" },
-        { nome: "paper-plane-outline" }
-    ];
+    const [classHeart, setClassHeart] = React.useState("md hydrated");
 
     function Topo(props) {
         return (
@@ -36,7 +25,9 @@ export default function Post(props) {
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <Icons style="" icons={icons} />
+                        <ion-icon class={classHeart} onClick={curtir} name={name}></ion-icon>
+                        <ion-icon name="chatbubble-outline"></ion-icon>
+                        <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <Icons style="" icons={[{ nome: "bookmark-outline" }]} />
                 </div>
@@ -51,17 +42,9 @@ export default function Post(props) {
         );
     }
 
-    function nomeFuncaoCurtir(nome){
-        if(nome === "curtir"){
-            setNomeFuncao(curtir);
-        } else if(nome === "curtirImagem"){
-            setNomeFuncao(curtirImagem);
-        }
-    }
-
     function curtir() {
         (name === "heart-outline") ? setName("heart") : setName("heart-outline");
-        (classHeart === "") ? setClassHeart("coracao-preenchido") : setClassHeart("");
+        (classHeart === "md hydrated") ? setClassHeart("md hydrated coracao-preenchido") : setClassHeart("md hydrated");
     }
 
     function curtirImagem() {
@@ -74,7 +57,7 @@ export default function Post(props) {
 
             <Topo usuario={props.post.usuario} />
 
-            <div class="conteudo">
+            <div onClick={curtirImagem} class="conteudo">
                 <img src={`assets/img/${props.post.conteudo}.svg`} />
             </div>
 
